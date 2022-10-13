@@ -1,25 +1,36 @@
-import logo from './logo.svg';
-import './App.css';
+import React, {useState} from 'react';
+import Navigation from "./Components/navigation";
+//import Body from "./Components/body";
 
-function App() {
+export default function App() {
+  const [pageState, setPageState] = useState(0);
+  const [loggedIn, setLoggedIn] = useState(false);
+
+  const updateLoginStatus = (newStatus) => {
+    setLoggedIn(newStatus);
+  };
+  const updatePageState = (newState) => {
+    setPageState(newState);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div>
+      <Navigation
+        pageState={pageState}
+        changeState={updatePageState}
+        loginStatus={loggedIn}
+        changeLoginStatus={updateLoginStatus}
+      />
     </div>
   );
 }
+/*
+<Body
+      pageState={pageState}
+      changeState={updatePageState}
+      loginStatus={loggedIn}
+      changeLoginStatus={updateLoginStatus}
+    />
+*/
 
-export default App;
+
+//render(html` <${App} /> `, document.getElementById("app"));

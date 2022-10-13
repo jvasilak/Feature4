@@ -1,0 +1,27 @@
+.navigation {
+    top: 0;
+    left: 0;
+    display: flex;
+    flex-flow: row wrap;
+    list-style: none;
+    margin: 0;
+    background: darkslategray;
+  }
+  
+  .navigationEntry {
+    font-family: "Josefin Sans", serif, sans-serif;
+    text-decoration: none;
+    display: block;
+    padding: 1em;
+    color: white;
+  }
+  
+  .navigationEntry a {
+    cursor: pointer;
+    padding: 1em;
+  }
+  
+  .navigationEntry a:hover {
+    background-color: blue;
+    transition-duration: 0.3s;
+  }
