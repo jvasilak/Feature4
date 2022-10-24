@@ -2,7 +2,7 @@ import React, {
     useState,
     useEffect
   } from "react";
-import { getAllSports } from "../../../Services/services.js";
+import { getAllSports } from "../../../Services/sports";
   
 // Once sport info component is added, should make each list item a link
 // to its respective component

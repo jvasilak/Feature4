@@ -3,8 +3,9 @@ import React, {
     useEffect
   } from "react";
   
-  import { getDate } from "../../Services/date.js";
-  import { getAllGames, getAllSports } from "../../Services/services.js";
+  import { getDate } from "../../Services/date";
+  import { getAllSports } from "../../Services/sports";
+  import { getAllGames } from "../../Services/games";
   
   const Schedule = () => {
     const today = getDate(0);

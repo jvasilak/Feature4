@@ -1,5 +1,5 @@
 import React from 'react';
-import SportsList from "./SportList/sportlist.js";
+import SportsList from "./SportsList/sportslist";
   
   const Sports = (props) => {
     return (<Sports>

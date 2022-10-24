@@ -1,12 +1,12 @@
 import React from 'react';
-import LoginPage from "./Login/login.js";
-import Home from "./Home/home.js";
-import Sports from "./Sports/sports.js";
-import Schedule from "./Schedule/schedule.js";
+import LoginPage from "./Login/login";
+import Home from "./Home/home";
+import Sports from "./Sports/sports";
+import Schedule from "./Schedule/schedule";
 // This component is a blanket component for any part of the page
 // below the navigation bar
 const Body = (props) => {
-  if (props.pageState === 0) {
+    if (props.pageState === 0) {
     return (<body class="bodyComponent">
       <Home loginStatus={props.loginStatus} />
     </body>);

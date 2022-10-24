@@ -1,6 +1,11 @@
 import React, {useState} from 'react';
 import Navigation from "./Components/navigation";
-//import Body from "./Components/body";
+import * as Env from "./environment";
+import Parse from "parse";
+import Body from "./Components/body";
+
+Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
+Parse.serverURL = Env.SERVER_URL;
 
 export default function App() {
   const [pageState, setPageState] = useState(0);
@@ -23,14 +28,12 @@ export default function App() {
     </div>
   );
 }
-/*
-<Body
-      pageState={pageState}
-      changeState={updatePageState}
-      loginStatus={loggedIn}
-      changeLoginStatus={updateLoginStatus}
-    />
-*/
 
+/*<Body
+        pageState={pageState}
+        changeState={updatePageState}
+        loginStatus={loggedIn}
+        changeLoginStatus={updateLoginStatus}
+      />*/
 
 //render(html` <${App} /> `, document.getElementById("app"));

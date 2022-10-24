@@ -3,7 +3,7 @@ import React, {
     useEffect
   } from "react";
   
-  import { getAllUsers } from "../../Services/services.js";
+  import { getAllUsers } from "../../Services/users";
   
   const LoginPage = (props) => {
     const [users, setUsers] = useState([]);
