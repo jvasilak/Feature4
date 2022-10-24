@@ -29,29 +29,31 @@ import React, {
   
     if (users.length > 0) {
       return (<div>
-      <h1 class="pageHeader">Login</h1>
-      <form method="GET" onsubmit={(event) => {
-        attemptLogin(event);
-      }}>
-      <div class="loginInput">
-        <label>Username</label>
-        <input type="text"
-        onchange={(event) => setUsername(event.target.value)}>Username</input>
+        <h1 className="pageHeader">Login</h1>
+        <form method="GET" onSubmit={(event) => {
+          attemptLogin(event);
+        }}>
+          <div class="loginInput">
+            <label>Username</label>
+            <input type="text"
+            onChange={(event) => setUsername(event.target.value)}
+            />
+          </div>
+          <div class="loginInput">
+            <label>Password</label>
+            <input type="password"
+            onChange={(event) => setPassword(event.target.value)}
+            />
+            <br />
+          </div>
+          <div className="loginInput">
+            <input className="loginSubmit" type="submit"/>
+          </div>
+        </form>
       </div>
-      <div class="loginInput">
-        <label>Password</label>
-        <input type="password"
-        onchange={(event) => setPassword(event.target.value)}>Password</input>
-        <br />
-      </div>
-      <div class="loginInput">
-        <input class="loginSubmit" type="submit">Login</input>
-      </div>
-      </form>
-    </div>
       );
     } else {
-      return (<div class="loader"></div>);
+      return (<div >Loading</div>);
     }
   };
   
