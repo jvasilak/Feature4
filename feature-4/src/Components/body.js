@@ -7,26 +7,26 @@ import Schedule from "./Schedule/schedule";
 // below the navigation bar
 const Body = (props) => {
     if (props.pageState === 0) {
-    return (<body class="bodyComponent">
+    return (<div class="bodyComponent">
       <Home loginStatus={props.loginStatus} />
-    </body>);
+    </div>);
   } else if (props.pageState === 1) {
-    return (<body class="bodyComponent">
+    return (<div class="bodyComponent">
       <Sports />
-    </body>);
+    </div>);
   } else if (props.pageState === 2) {
-    return (<body class="bodyComponent">
+    return (<div class="bodyComponent">
       <Schedule />
-    </body>);
+    </div>);
   } else if (props.pageState === 3) {
-    return (<body class="bodyComponent">
+    return (<div class="bodyComponent">
       <LoginPage
         pageState={props.pageState}
         changeState={props.changeState}
         loginStatus={props.loginStatus}
         changeLoginStatus={props.changeLoginStatus}
       />
-    </body>);
+    </div>);
   } else {
     return (
     <div><h1>Error</h1>

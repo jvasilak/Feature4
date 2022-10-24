@@ -2,10 +2,10 @@ import React from 'react';
 import SportsList from "./SportsList/sportslist";
   
   const Sports = (props) => {
-    return (<Sports>
+    return (<div>
       <h1 class="pageHeader">Sports</h1>
       <SportsList />
-    </Sports>);
+    </div>);
   };
   
   export default Sports;

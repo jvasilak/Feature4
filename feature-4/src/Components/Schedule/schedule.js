@@ -30,7 +30,7 @@ import React, {
       setSelectedDay(date);
     };
     if (games.length > 0 && sports.length > 0) {
-      return (<Schedule>
+      return (<div>
         <h1 class="pageHeader">Schedule</h1>
         <select
           class="scheduleSelector"
@@ -55,7 +55,7 @@ import React, {
                 </li>)
             )}
         </ul>
-      </Schedule>);
+      </div>);
     } else {
       return (<div class="loader"></div>);
     }

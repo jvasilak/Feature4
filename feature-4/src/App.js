@@ -25,6 +25,12 @@ export default function App() {
         loginStatus={loggedIn}
         changeLoginStatus={updateLoginStatus}
       />
+      <Body
+        pageState={pageState}
+        changeState={updatePageState}
+        loginStatus={loggedIn}
+        changeLoginStatus={updateLoginStatus}
+      />
     </div>
   );
 }

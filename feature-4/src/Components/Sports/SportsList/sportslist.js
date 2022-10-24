@@ -14,11 +14,11 @@ const SportsList = (props) => {
         });
     }, []);
     if (sports.length > 0) {
-        return (<SportsList>
+        return (<div>
         <ul class="sportsList">
-            {sports.map((sport) =>  <li>{sport.name}</li>)}
+            {sports.map((sport) =>  <li>{sport.get("Name")}</li>)}
         </ul>
-        </SportsList>);
+        </div>);
     } else {
         return (<div class="loader"></div>);
     }

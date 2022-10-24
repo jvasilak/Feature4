@@ -17,12 +17,11 @@ const Navigation = (props) => {
   };
 
   return (
-    <navigation>
-      <ul class="navigation">
+      <ul className="navigation">
         {navNames.map((link) => {
-          return (<li class="navigationEntry">
+          return (<li className="navigationEntry">
             <a
-              onclick={() => {
+              onClick={() => {
                 newState(link);
               }}
             >
@@ -31,7 +30,6 @@ const Navigation = (props) => {
           </li>);
         })}
       </ul>
-    </navigation>
   );
 };
 

@@ -28,7 +28,7 @@ import React, {
     };
   
     if (users.length > 0) {
-      return (<loginPage>
+      return (<div>
       <h1 class="pageHeader">Login</h1>
       <form method="GET" onsubmit={(event) => {
         attemptLogin(event);
@@ -48,7 +48,7 @@ import React, {
         <input class="loginSubmit" type="submit">Login</input>
       </div>
       </form>
-    </loginPage>
+    </div>
       );
     } else {
       return (<div class="loader"></div>);
