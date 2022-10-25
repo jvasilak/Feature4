@@ -6,7 +6,6 @@ export const getAllSports = () => {
     const query = new Parse.Query(Sport);
     return query.find().then((results) => {
       // returns array of Game objects
-      console.log(results);
       return results;
     });
   };
