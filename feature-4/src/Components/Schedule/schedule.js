@@ -23,9 +23,6 @@ const Schedule = () => {
       setSports(sport);
     });
   }, []);
-  const getSportByID = (id) => {
-    return sports[id - 1]["name"];
-  };
   const newGames = (date) => {
     setSelectedDay(date);
   };
@@ -43,14 +40,16 @@ const Schedule = () => {
         <option value="10/6/2022">10/6/2022</option>
       </select>
       <ul class="gameSchedule">
-        ${games
+        {games
           .filter(function (game) {
-            return game.get("Date") === selectedDay;
+            const d = game.get("Date");
+            const date = `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
+            return date === selectedDay;
           })
           .map(
             (game) =>
               (<li>
-                <b> {game.get("ID")}:</b> {game.get("Team1")} vs
+                <b> {game.get("Sport")}:</b> {game.get("Team1")} vs
                 {" "}{game.get("Team2")} 
               </li>)
           )}
