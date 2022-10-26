@@ -3,12 +3,10 @@ import React, {
     useEffect
 } from "react";
 
-import { getDate } from "../../Services/date";
 import { getAllSports } from "../../Services/sports";
 import { getAllGames } from "../../Services/games";
 import './schedule.css';
 const Schedule = () => {
-  const today = getDate(0);
   // TODO: add the ability to read the current date into the selected day value, set it as default
   const [selectedDay, setSelectedDay] = useState("10/5/2022");
   const [games, setGames] = useState([]);
@@ -26,6 +24,21 @@ const Schedule = () => {
   const newGames = (date) => {
     setSelectedDay(date);
   };
+  const gameTime = (date) => {
+    console.log(date);
+    let hours = date.getHours();
+    let half = "PM";
+    if (hours < 12) {
+      half = "AM";
+    }
+    //hours = hours % 12;
+    let minutes = date.getMinutes();
+    if (minutes < 10) {
+      return `${hours}:0${minutes} ${half}`;
+    } else {
+      return `${hours}:${minutes} ${half}`;
+    }
+  }
   if (games.length > 0 && sports.length > 0) {
     return (<div>
       <h1 class="pageHeader">Schedule</h1>
@@ -50,7 +63,7 @@ const Schedule = () => {
             (game) =>
               (<li>
                 <b> {game.get("Sport")}:</b> {game.get("Team1")} vs
-                {" "}{game.get("Team2")} 
+                {" "}{game.get("Team2")} {gameTime(game.get("Date"))}
               </li>)
           )}
       </ul>
