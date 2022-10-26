@@ -34,7 +34,7 @@ const Schedule = () => {
       <h1 class="pageHeader">Schedule</h1>
       <select
         class="scheduleSelector"
-        onchange={(selectedDate) => {
+        onChange={(selectedDate) => {
           newGames(selectedDate.target.value);
         }}
       >
@@ -45,13 +45,13 @@ const Schedule = () => {
       <ul class="gameSchedule">
         ${games
           .filter(function (game) {
-            return game["date"] === selectedDay;
+            return game.get("Date") === selectedDay;
           })
           .map(
             (game) =>
               (<li>
-                <b> {getSportByID(game["sportID"])}:</b> {game["team1"]} vs
-                {" "}{game["team2"]} {game["time"]}
+                <b> {game.get("ID")}:</b> {game.get("Team1")} vs
+                {" "}{game.get("Team2")} 
               </li>)
           )}
       </ul>
