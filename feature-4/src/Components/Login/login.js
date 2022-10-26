@@ -13,16 +13,19 @@ import './login.css';
         setUsers(users);
       });
     }, []);
+    // We currently do not have many users created, in order to see the effects of a successful login try "admin" for both the username and password
     const attemptLogin = (submitEvent) => {
-      for (let i = 0; i < users.length; i++) {
-        if (users[i]["username"] === username) {
-          if (users[i]["password"] === password) {
+      users.map((user) => {
+        if(user.get("Username") === username) {
+          if(user.get("Password") === password) {
             props.changeState(0);
             props.changeLoginStatus(true);
-            break;
+            alert("success");
+            return;
           }
         }
-      }
+      });
+      
       submitEvent.preventDefault();
     };
   
@@ -52,7 +55,7 @@ import './login.css';
       </div>
       );
     } else {
-      return (<div >Loading</div>);
+      return (<div class="loader"></div>); 
     }
   };
   
