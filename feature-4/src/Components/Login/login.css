@@ -1,0 +1,28 @@
+.bodyComponent {
+    overflow: auto;
+    background-color: palegoldenrod;
+  }
+  
+  .pageHeader {
+    font-family: "Josefin Sans", serif, sans-serif;
+    text-align: center;
+  }
+  
+  .loginInput {
+    padding: 10px;
+    text-align: center;
+  }
+  
+  .loginInput label {
+    padding: 5px;
+    font-family: "Josefin Sans", sans-serif, serif;
+  }
+  
+  .loginSubmit {
+    padding: 2px;
+    background-color: darkslategray;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 6px;
+    font-family: "Open Sans", "Josefin Sans", serif;
+  }

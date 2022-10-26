@@ -1,10 +1,9 @@
 import React, {
     useState,
     useEffect
-  } from "react";
-  
-  import { getAllUsers } from "../../Services/users";
-  
+  } from "react";  
+import { getAllUsers } from "../../Services/users";
+import './login.css';
   const LoginPage = (props) => {
     const [users, setUsers] = useState([]);
     const [username, setUsername] = useState("");
@@ -33,13 +32,13 @@ import React, {
         <form method="GET" onSubmit={(event) => {
           attemptLogin(event);
         }}>
-          <div class="loginInput">
+          <div className="loginInput">
             <label>Username</label>
             <input type="text"
             onChange={(event) => setUsername(event.target.value)}
             />
           </div>
-          <div class="loginInput">
+          <div className="loginInput">
             <label>Password</label>
             <input type="password"
             onChange={(event) => setPassword(event.target.value)}
