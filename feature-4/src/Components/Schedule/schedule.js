@@ -2,6 +2,8 @@ import React, {
     useState,
     useEffect
   } from "react";
+
+  import Navigation from "../navigation";
   
   import { getDate } from "../../Services/date";
   import { getAllSports } from "../../Services/sports";
@@ -30,13 +32,13 @@ import React, {
       setSelectedDay(date);
     };
     if (games.length > 0 && sports.length > 0) {
-      return (<div>
+      return (<><Navigation /><div>
         <h1 class="pageHeader">Schedule</h1>
         <select
           class="scheduleSelector"
           onchange={(selectedDate) => {
             newGames(selectedDate.target.value);
-          }}
+          } }
         >
           <option value="10/4/2022">10/4/2022</option>
           <option value="10/5/2022" selected>10/5/2022</option>
@@ -48,14 +50,13 @@ import React, {
               return game["date"] === selectedDay;
             })
             .map(
-              (game) =>
-                (<li>
-                  <b> {getSportByID(game["sportID"])}:</b> {game["team1"]} vs
-                  {" "}{game["team2"]} {game["time"]}
-                </li>)
+              (game) => (<li>
+                <b> {getSportByID(game["sportID"])}:</b> {game["team1"]} vs
+                {" "}{game["team2"]} {game["time"]}
+              </li>)
             )}
         </ul>
-      </div>);
+      </div></>);
     } else {
       return (<div class="loader"></div>);
     }

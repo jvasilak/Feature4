@@ -2,6 +2,7 @@ import React, {
     useState,
     useEffect
   } from "react";
+  import Navigation from "../navigation";
   
   import { getAllUsers } from "../../Services/users";
   
@@ -28,29 +29,27 @@ import React, {
     };
   
     if (users.length > 0) {
-      return (<div>
+      return (<><Navigation /><div>
         <h1 className="pageHeader">Login</h1>
         <form method="GET" onSubmit={(event) => {
           attemptLogin(event);
-        }}>
+        } }>
           <div class="loginInput">
             <label>Username</label>
             <input type="text"
-            onChange={(event) => setUsername(event.target.value)}
-            />
+              onChange={(event) => setUsername(event.target.value)} />
           </div>
           <div class="loginInput">
             <label>Password</label>
             <input type="password"
-            onChange={(event) => setPassword(event.target.value)}
-            />
+              onChange={(event) => setPassword(event.target.value)} />
             <br />
           </div>
           <div className="loginInput">
-            <input className="loginSubmit" type="submit"/>
+            <input className="loginSubmit" type="submit" />
           </div>
         </form>
-      </div>
+      </div></>
       );
     } else {
       return (<div >Loading</div>);

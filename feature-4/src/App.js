@@ -1,45 +1,34 @@
 import React, {useState} from 'react';
 import Navigation from "./Components/navigation";
+import Home from "./Components/Home/home.js";
+import Login from "./Components/Login/login.js";
+import Schedule  from './Components/Schedule/schedule';
+import Sports from './Components/Sports/sports';
 import * as Env from "./environment";
 import Parse from "parse";
-import Body from "./Components/body";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect
+} from "react-router-dom";
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
 
 export default function App() {
-  const [pageState, setPageState] = useState(0);
-  const [loggedIn, setLoggedIn] = useState(false);
-
-  const updateLoginStatus = (newStatus) => {
-    setLoggedIn(newStatus);
-  };
-  const updatePageState = (newState) => {
-    setPageState(newState);
-  };
   return (
-    <div>
-      <Navigation
-        pageState={pageState}
-        changeState={updatePageState}
-        loginStatus={loggedIn}
-        changeLoginStatus={updateLoginStatus}
-      />
-      <Body
-        pageState={pageState}
-        changeState={updatePageState}
-        loginStatus={loggedIn}
-        changeLoginStatus={updateLoginStatus}
-      />
-    </div>
+    <>
+    <Router>
+      <Switch>
+        <Route path="/" exact component={Home} />
+        <Route path="/schedule" component={Schedule} />
+        <Route path="/sports" component={Sports} />
+        <Route path="/login" component={Login} />
+        <Redirect to="/" />
+      </Switch>
+    </Router>
+    <Navigation />
+    </>
   );
 }
-
-/*<Body
-        pageState={pageState}
-        changeState={updatePageState}
-        loginStatus={loggedIn}
-        changeLoginStatus={updateLoginStatus}
-      />*/
-
-//render(html` <${App} /> `, document.getElementById("app"));
