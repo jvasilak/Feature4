@@ -18,17 +18,17 @@ Parse.serverURL = Env.SERVER_URL;
 
 export default function App() {
   return (
-    <>
+    
     <Router>
     <Navigation />
       <Switch>
         <Route path="/" exact component={Home} />
-        <Route path="/schedule" component={Schedule} />
-        <Route path="/sports" component={Sports} />
-        <Route path="/login" component={Login} />
+        <Route path="/schedule" exact component={Schedule} />
+        <Route path="/sports" exact component={Sports} />
+        <Route path="/login" exact component={Login} />
         <Redirect to="/" />
       </Switch>
     </Router>
-    </>
+  
   );
 }

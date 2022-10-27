@@ -6,7 +6,6 @@ const Home = (props) => {
   // Todo: add a bit of text that lets the user know if they are logged in
   // if they are logged in say a greeting to them
   return (
-    <><Navigation />
     <div>
       <h1 className="pageHeader">Home</h1>
       <p className="bodyText">
@@ -15,7 +14,7 @@ const Home = (props) => {
         including excessive ads and slow load times. Please log in if you have an
         account or feel free a list of supported sports or a game schedule.
       </p>
-    </div></>);
+    </div>);
 };
 
 export default Home;
