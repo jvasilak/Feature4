@@ -1,11 +1,10 @@
 import React, {
     useState,
     useEffect
-  } from "react";
-  import Navigation from "../navigation";
-  
-  import { getAllUsers } from "../../Services/users";
-  
+  } from "react";  
+import { getAllUsers } from "../../Services/users";
+import './login.css';
+
   const LoginPage = (props) => {
     const [users, setUsers] = useState([]);
     const [username, setUsername] = useState("");
@@ -15,16 +14,19 @@ import React, {
         setUsers(users);
       });
     }, []);
+    // We currently do not have many users created, in order to see the effects of a successful login try "admin" for both the username and password
     const attemptLogin = (submitEvent) => {
-      for (let i = 0; i < users.length; i++) {
-        if (users[i]["username"] === username) {
-          if (users[i]["password"] === password) {
+      users.map((user) => {
+        if(user.get("Username") === username) {
+          if(user.get("Password") === password) {
             props.changeState(0);
             props.changeLoginStatus(true);
-            break;
+            alert("success");
+            return;
           }
         }
-      }
+      });
+      
       submitEvent.preventDefault();
     };
   
@@ -33,13 +35,15 @@ import React, {
         <h1 className="pageHeader">Login</h1>
         <form method="GET" onSubmit={(event) => {
           attemptLogin(event);
-        } }>
-          <div class="loginInput">
+
+        }}>
+          <div className="loginInput">
+
             <label>Username</label>
             <input type="text"
               onChange={(event) => setUsername(event.target.value)} />
           </div>
-          <div class="loginInput">
+          <div className="loginInput">
             <label>Password</label>
             <input type="password"
               onChange={(event) => setPassword(event.target.value)} />
@@ -52,7 +56,7 @@ import React, {
       </div></>
       );
     } else {
-      return (<div >Loading</div>);
+      return (<div class="loader"></div>); 
     }
   };
   

@@ -1,0 +1,40 @@
+.scheduleSelector {
+    padding: 15px 0;
+    font-size: 24px;
+    width: 100%;
+    text-align: center;
+    font-family: "Josefin Sans", serif, sans-serif;
+    background-color: darkslategray;
+  }
+  
+  .gameSchedule {
+    display: flex;
+    flex-flow: column wrap;
+    list-style: none;
+    text-align: left;
+  }
+  
+  .gameSchedule li {
+    font-family: "Open Sans", sans-serif, serif;
+    font-size: 18px;
+    padding: 10px;
+  }
+  
+  .loader {
+    border: 10px solid #f3f3f3;
+    border-top: 10px solid #3498db;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    animation: spin 1s linear infinite;
+    align-items: center;
+  }
+  
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
