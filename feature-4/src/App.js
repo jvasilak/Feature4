@@ -20,6 +20,7 @@ export default function App() {
   return (
     <>
     <Router>
+    <Navigation />
       <Switch>
         <Route path="/" exact component={Home} />
         <Route path="/schedule" component={Schedule} />
@@ -28,7 +29,6 @@ export default function App() {
         <Redirect to="/" />
       </Switch>
     </Router>
-    <Navigation />
     </>
   );
 }

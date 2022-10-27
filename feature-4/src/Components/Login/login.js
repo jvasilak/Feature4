@@ -32,7 +32,7 @@ import './login.css';
     };
   
     if (users.length > 0) {
-      return (<><Navigation /><div>
+      return (<div>
         <h1 className="pageHeader">Login</h1>
         <form method="GET" onSubmit={(event) => {
           attemptLogin(event);
@@ -54,7 +54,7 @@ import './login.css';
             <input className="loginSubmit" type="submit" />
           </div>
         </form>
-      </div></>
+      </div>
       );
     } else {
       return (<div class="loader"></div>); 

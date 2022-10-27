@@ -8,10 +8,10 @@ const Navigation = (props) => {
 
   return (
       <ul className="navigation">
-        <li className='navigationEntry'><Link to="/">Home</Link></li>
-        <li className='navigationEntry'><Link to="/sports">Sports</Link></li>
-        <li className='navigationEntry'><Link to="/schedule">Schedule</Link></li>
-        <li className='navigationEntry'><Link to="/login">Login</Link></li>
+        <li className='navigationEntry'><Link to="/" className='navigationEntry'>Home</Link></li>
+        <li className='navigationEntry'><Link to="/sports" className='navigationEntry'>Sports</Link></li>
+        <li className='navigationEntry'><Link to="/schedule" className='navigationEntry'>Schedule</Link></li>
+        <li className='navigationEntry'><Link to="/login" className='navigationEntry'>Login</Link></li>
       </ul>
   );
 };
