@@ -35,6 +35,7 @@ const Schedule = () => {
     let minutes = date.getMinutes();
     if (minutes < 10) {
       return `${hours}:0${minutes} ${half}`;
+
     } else {
       return `${hours}:${minutes} ${half}`;
     }
