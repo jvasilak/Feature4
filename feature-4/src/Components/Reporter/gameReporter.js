@@ -1,0 +1,1 @@
+// allow user to add games if they are an admin to the schedule

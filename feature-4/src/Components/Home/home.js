@@ -1,6 +1,5 @@
 import React from 'react';
 import './homestyles.css'
-import Navigation from '../navigation';
 
 const Home = (props) => {
   // Todo: add a bit of text that lets the user know if they are logged in
