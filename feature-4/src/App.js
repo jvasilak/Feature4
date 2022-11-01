@@ -21,13 +21,13 @@ export default function App() {
     
     <Router>
     <Navigation />
-      <Switch>
+      <Routes>
         <Route path="/" exact component={Home} />
         <Route path="/schedule" exact component={Schedule} />
         <Route path="/sports" exact component={Sports} />
         <Route path="/login" exact component={Login} />
         <Redirect to="/" />
-      </Switch>
+      </Routes>
     </Router>
   
   );
