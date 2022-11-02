@@ -9,8 +9,7 @@ import Parse from "parse";
 import {
   BrowserRouter as Router,
   Route,
-  Switch,
-  Redirect
+  Routes
 } from "react-router-dom";
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
@@ -22,11 +21,10 @@ export default function App() {
     <Router>
     <Navigation />
       <Routes>
-        <Route path="/" exact component={Home} />
-        <Route path="/schedule" exact component={Schedule} />
-        <Route path="/sports" exact component={Sports} />
-        <Route path="/login" exact component={Login} />
-        <Redirect to="/" />
+        <Route path="/" exact element={<Home />} />
+        <Route path="/schedule" element={<Schedule/>} />
+        <Route path="/sports" element={<Sports/>} />
+        <Route path="/login" element={<Login/>} />
       </Routes>
     </Router>
   
