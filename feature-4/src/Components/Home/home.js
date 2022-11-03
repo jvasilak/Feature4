@@ -1,5 +1,6 @@
 import React from 'react';
-import './homestyles.css'
+import './homestyles.css';
+import { Link } from "react-router-dom";
 
 const Home = (props) => {
   // Todo: add a bit of text that lets the user know if they are logged in
@@ -13,6 +14,7 @@ const Home = (props) => {
         including excessive ads and slow load times. Please log in if you have an
         account or feel free a list of supported sports or a game schedule.
       </p>
+      <Link to="/dashboard">Dashboard Link</Link>
     </div>);
 };
 
