@@ -11,6 +11,7 @@ import {
   Route,
   Routes
 } from "react-router-dom";
+import { Dashboard } from './Components/Dashboard/dashboard';
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
@@ -25,6 +26,7 @@ export default function App() {
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/sports" element={<Sports/>} />
         <Route path="/login" element={<Login/>} />
+        <Route path="/dashboard" element={<Dashboard/>} />
       </Routes>
     </Router>
   

@@ -3,5 +3,7 @@ import React from 'react';
 export const Dashboard = () => {
 
 
-    return (<div>Dashboard</div>);
+    return (<div>
+        <p>Welcome {"username"}</p>
+    </div>);
 }
