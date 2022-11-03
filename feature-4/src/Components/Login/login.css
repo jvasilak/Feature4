@@ -25,4 +25,11 @@
     font-size: 12px;
     border-radius: 6px;
     font-family: "Open Sans", "Josefin Sans", serif;
+    height: 30px;
+    width: 100px;
+  }
+
+  .loginSubmit:hover {
+    cursor: pointer;
+    opacity: 50%;
   }
