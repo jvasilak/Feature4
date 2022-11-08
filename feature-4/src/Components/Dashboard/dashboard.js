@@ -1,7 +1,7 @@
 import React from 'react';
 import './dashboard.css';
 
-export const Dashboard = () => {
+const Dashboard = () => {
 
 
     return (<div>
@@ -10,3 +10,5 @@ export const Dashboard = () => {
         <h2>Games:</h2>
     </div>);
 }
+
+export default Dashboard;

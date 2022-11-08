@@ -11,7 +11,8 @@ import {
   Route,
   Routes
 } from "react-router-dom";
-import { Dashboard } from './Components/Dashboard/dashboard';
+import Dashboard from './Components/Dashboard/dashboard';
+import Register from './Components/Register/register';
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
@@ -27,6 +28,7 @@ export default function App() {
         <Route path="/sports" element={<Sports/>} />
         <Route path="/login" element={<Login/>} />
         <Route path="/dashboard" element={<Dashboard/>} />
+        <Route path="/register" element={<Register/>} />
       </Routes>
     </Router>
   

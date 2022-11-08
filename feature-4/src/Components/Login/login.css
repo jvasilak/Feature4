@@ -33,3 +33,7 @@
     cursor: pointer;
     opacity: 50%;
   }
+
+  .registerLink {
+    text-align: center;
+  }

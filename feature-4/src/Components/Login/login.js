@@ -2,6 +2,7 @@ import React, {
     useState,
     useEffect
   } from "react";  
+import { Link } from "react-router-dom";
 import { getAllUsers } from "../../Services/users";
 import Navigation from "../navigation";
 import './login.css';
@@ -54,6 +55,7 @@ import './login.css';
             <input className="loginSubmit" type="submit" />
           </div>
         </form>
+        <p className="registerLink">Don't have an account? <Link to="/register">Click Here to Register</Link></p>
       </div>
       );
     } else {
