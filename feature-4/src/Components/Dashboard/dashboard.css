@@ -1,0 +1,19 @@
+@import "https://fonts.googleapis.com/css?family=Inter";
+@import "https://fonts.googleapis.com/css?family=Josefin+Sans";
+
+
+body {
+  background: palegoldenrod;
+}
+
+.bodyText {
+  font-family: "Inter", serif, sans-serif;
+  font-size: 14px;
+  line-height: 24px;
+  margin-left: 10px;
+}
+
+.pageHeader {
+    font-family: "Josefin Sans", serif, sans-serif;
+    text-align: center;
+  }

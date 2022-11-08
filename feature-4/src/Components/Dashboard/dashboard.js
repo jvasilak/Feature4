@@ -1,9 +1,12 @@
 import React from 'react';
+import './dashboard.css';
 
 export const Dashboard = () => {
 
 
     return (<div>
-        <p>Welcome {"username"}</p>
+        <h1 className='pageHeader'>Welcome <i>{"username"}</i></h1>
+        <h2>Teams:</h2>
+        <h2>Games:</h2>
     </div>);
 }
