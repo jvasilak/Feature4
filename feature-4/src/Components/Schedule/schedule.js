@@ -56,15 +56,16 @@ const Schedule = () => {
       <ul class="gameSchedule">
         {games
           .filter(function (game) {
-            const d = game.get("Date");
+            const d = game.get("GameTime");
+            console.log(d);
             const date = `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`;
             return date === selectedDay;
           })
           .map(
             (game) =>
               (<li>
-                <b> {game.get("Sport")}:</b> {game.get("Team1")} vs
-                {" "}{game.get("Team2")} {gameTime(game.get("Date"))}
+                <b> {game.get("SportID")}:</b> {game.get("Team1ID")} vs
+                {" "}{game.get("Team2ID")} {gameTime(game.get("GameTime"))}
               </li>)
           )}
       </ul>
