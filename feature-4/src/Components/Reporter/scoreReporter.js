@@ -1,0 +1,1 @@
+// allow user to add scores to completed games if they are an admin
