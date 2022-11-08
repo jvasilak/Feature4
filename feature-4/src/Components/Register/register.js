@@ -1,6 +1,6 @@
 import React from 'react';
 import { checkUser, createUser } from "../../Services/AuthService";
-
+import AuthRegister from './AuthRegister';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -8,6 +8,7 @@ const Register = () => {
     const [newUser, setNewUser] = useState({
         firstName: "",
         lastName: "",
+        username: "",
         email: "",
         password: ""
     });
@@ -22,9 +23,43 @@ const Register = () => {
         navigate("/");
         }
     }, [navigate]);
+
+    useEffect(() => {
+        // checkUser() ? history.push("/home"): null;
+        if (newUser && add) {
+          createUser(newUser).then((userCreated) => {
+            if (userCreated) {
+              alert(
+                `${userCreated.get("firstName")}, you successfully registered!`
+              );
+              navigate("/");
+            }
+            // TODO: redirect user to main app
+            setAdd(false);
+          });
+        }
+      }, [navigate, newUser, add]);
     
+      const onChangeHandler = (e) => {
+        e.preventDefault();
+        console.log(e.target);
+        const { name, value: newValue } = e.target;
+        console.log(newValue);
+    
+        setNewUser({
+          ...newUser,
+          [name]: newValue
+        });
+      };
+    
+      const onSubmitHandler = (e) => {
+        e.preventDefault();
+        console.log("submitted: ", e.target);
+        setAdd(true);
+      };
+
     return (
-        <div>This will be the regsiter page</div>
+        < AuthRegister />
     );
 }
 
