@@ -19,18 +19,21 @@ Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
 
 export default function App() {
+  const [loggedIn, setLoggedIn] = useState(false);
+  const updateLoginStatus = (status) => {
+    setLoggedIn(status);
+  };
   return (
-    
     <Router>
-    <Navigation />
+    <Navigation loggedIn={loggedIn}/>
       <Routes>
         <Route path="/" exact element={<Home />} />
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/sports" element={<Sports/>} />
-        <Route path="/login" element={<Login/>} />
-        <Route path="/dashboard" element={<Dashboard/>} />
-        <Route path="/dashboardAuth" element={<DashboardAuth/>}/>
-        <Route path="/register" element={<Register/>} />
+        <Route path="/login" element={<Login loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
+        <Route path="/dashboard" element={<Dashboard loggedIn={loggedIn}/>} />
+        <Route path="/dashboardAuth" element={<DashboardAuth loggedIn={loggedIn}/>}/>
+        <Route path="/register" element={<Register loggedIn={loggedIn}/>} />
       </Routes>
     </Router>
   

@@ -3,8 +3,7 @@ import LoginPage from "./Login/login";
 import Home from "./Home/home";
 import Sports from "./Sports/sports";
 import Schedule from "./Schedule/schedule";
-// This component is a blanket component for any part of the page
-// below the navigation bar
+// THIS COMPONENT NO LONGER CONNECTS TO ANYTHING
 const Body = (props) => {
     if (props.pageState === 0) {
     return (<div class="bodyComponent">
