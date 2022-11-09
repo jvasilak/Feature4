@@ -1,12 +1,25 @@
 import React from "react";
 import { Navigate, useNavigate } from "react-router-dom";
-const ProtectedRoute = ({ element: Component, flag, ...rest }) => {
-  console.log("rest: ", rest);
 
+const authPaths = [
+  "/login",
+  "/register"
+];
+
+const ProtectedRoute = ({ children, ...rest }) => {
+  console.log("rest: ", rest);
+  let flag;
+  authPaths.includes(rest.path) ? flag = true : flag = false;
+  console.log("contains path: ", flag);
   return (
     <div>
-      {flag ? (
-        <Navigate to={rest.path} replace />
+      {flag ? rest.loggedIn ? (
+        <Navigate to={"/dashboard"} replace />
+      ) : (
+        children
+      ) : 
+      rest.loggedIn ? (
+        children
       ) : (
         <Navigate to={"/login"} replace/>
       )}

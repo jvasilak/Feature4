@@ -1,6 +1,13 @@
+import React from "react";
+import ProtectedRoute from "../../Common/protectedRoutes";
+import Register from "./register";
 
-export default function AuthRegister() {
+const AuthRegister = (props) => {
     return (
-        <div></div>
+        <ProtectedRoute exact path="/register" element={Register} loggedIn={props.loggedIn}>
+            <Register/>
+        </ProtectedRoute>
     );
 }
+
+export default AuthRegister;
