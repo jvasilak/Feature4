@@ -6,6 +6,9 @@ export const createUser = (newUser) => {
 
   user.set("username", newUser.email);
   user.set("password", newUser.password);
+  user.set("firstname", newUser.firstName);
+  user.set("lastname", newUser.lastName);
+  user.set("email", newUser.email);
 
   console.log("User: ", user);
   return user

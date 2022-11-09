@@ -6,19 +6,19 @@ import Schedule from "./Schedule/schedule";
 // THIS COMPONENT NO LONGER CONNECTS TO ANYTHING
 const Body = (props) => {
     if (props.pageState === 0) {
-    return (<div class="bodyComponent">
+    return (<div className="bodyComponent">
       <Home loginStatus={props.loginStatus} />
     </div>);
   } else if (props.pageState === 1) {
-    return (<div class="bodyComponent">
+    return (<div className="bodyComponent">
       <Sports />
     </div>);
   } else if (props.pageState === 2) {
-    return (<div class="bodyComponent">
+    return (<div className="bodyComponent">
       <Schedule />
     </div>);
   } else if (props.pageState === 3) {
-    return (<div class="bodyComponent">
+    return (<div className="bodyComponent">
       <LoginPage
         pageState={props.pageState}
         changeState={props.changeState}

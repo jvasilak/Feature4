@@ -1,5 +1,5 @@
 import React from "react";
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate } from "react-router-dom";
 
 const authPaths = [
   "/login",
@@ -14,14 +14,14 @@ const ProtectedRoute = ({ children, ...rest }) => {
   return (
     <div>
       {flag ? rest.loggedIn ? (
-        <Navigate to={"/dashboard"} replace />
+        <Navigate to="/dashboard" replace />
       ) : (
         children
       ) : 
       rest.loggedIn ? (
         children
       ) : (
-        <Navigate to={"/login"} replace/>
+        <Navigate to="/login" replace/>
       )}
     </div>
   );

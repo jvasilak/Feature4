@@ -68,9 +68,9 @@ const Schedule = () => {
   }
   if (games.length > 0 && sports.length > 0) {
     return (<div>
-      <h1 class="pageHeader">Schedule</h1>
+      <h1 className="pageHeader">Schedule</h1>
       <select
-        class="scheduleSelector"
+        className="scheduleSelector"
         onChange={(selectedDate) => {
           newGames(selectedDate.target.value);
         }}
@@ -79,7 +79,7 @@ const Schedule = () => {
         <option value="10/5/2022" selected>10/5/2022</option>
         <option value="10/6/2022">10/6/2022</option>
       </select>
-      <ul class="gameSchedule">
+      <ul className="gameSchedule">
         {games
           .filter(function (game) {
             const d = game.get("GameTime");
@@ -96,7 +96,7 @@ const Schedule = () => {
       </ul>
     </div>);
   } else {
-    return (<div class="loader"></div>);
+    return (<div className="loader"></div>);
   }
 };
 
