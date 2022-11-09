@@ -1,7 +1,7 @@
-import React, {useState, useNavigate, useEffect} from 'react';
+import React, {useState, useEffect} from 'react';
 import { checkUser, createUser } from "../../Services/AuthService";
 import AuthRegister from './AuthRegister';
-import {Link} from 'react-router-dom';
+import {Link, useNavigate} from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -96,7 +96,6 @@ const Register = () => {
                 </div>
             </form>
             <p className="registerLink">Already have an account? <Link to="/login">Click Here to Login</Link></p>
-            < AuthRegister />
         </div>
     );
 }
