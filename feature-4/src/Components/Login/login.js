@@ -4,7 +4,6 @@ import React, {
   } from "react";  
 import { Link } from "react-router-dom";
 import { getAllUsers } from "../../Services/users";
-import Navigation from "../navigation";
 import './login.css';
 
   const LoginPage = (props) => {

@@ -1,12 +1,11 @@
 import Parse from "parse";
 
-export const getAllGames = () => {
+export const getAllTeams = () => {
     console.log("Loading Results...");
-    const Game = Parse.Object.extend("Games");
-    const query = new Parse.Query(Game);
+    const Team = Parse.Object.extend("Teams");
+    const query = new Parse.Query(Team);
     return query.find().then((results) => {
       // returns array of Game objects
       return results;
     });
   };
-  
