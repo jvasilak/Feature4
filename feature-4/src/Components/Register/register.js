@@ -1,6 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { checkUser, createUser } from "../../Services/AuthService";
 import AuthRegister from './AuthRegister';
+import AuthForm from "./AuthForm";
 import {Link, useNavigate} from 'react-router-dom';
 
 const Register = () => {
@@ -28,6 +29,7 @@ const Register = () => {
     useEffect(() => {
         // checkUser() ? history.push("/home"): null;
         if (newUser && add) {
+          console.log('Here')
           createUser(newUser).then((userCreated) => {
             if (userCreated) {
               alert(
@@ -60,43 +62,13 @@ const Register = () => {
       };
 
     return (
-        <div>
-            <h1 className="pageHeader">Sign Up</h1>
-            <form method="GET" onSubmit={(event) => {
-                //createAccount();
-            }}>
-                <div className="loginInput">
-                <label>Username</label>
-                <input type="text"
-                    onChange={(event) => setNewUser(event.target.value)} />
-                </div>
-                <div className="loginInput">
-                <label>Email</label>
-                <input type="email"
-                    onChange={(event) => setNewUser(event.target.value)} />
-                </div>
-                <div className="loginInput">
-                <label>First Name</label>
-                <input type="text"
-                    onChange={(event) => setNewUser(event.target.value)} />
-                </div>
-                <div className="loginInput">
-                <label>Last Name</label>
-                <input type="text"
-                    onChange={(event) => setNewUser(event.target.value)} />
-                </div>
-                <div className="loginInput">
-                <label>Password</label>
-                <input type="password"
-                    onChange={(event) => setNewUser(event.target.value)} />
-                <br />
-                </div>
-                <div className="loginInput">
-                <input className="loginSubmit" type="submit" value="Create Account" />
-                </div>
-            </form>
-            <p className="registerLink">Already have an account? <Link to="/login">Click Here to Login</Link></p>
-        </div>
+      <div>
+      <AuthForm
+        user={newUser}
+        onChange={onChangeHandler}
+        onSubmit={onSubmitHandler}
+      />
+    </div>
     );
 }
 
