@@ -96,7 +96,6 @@ const Register = () => {
                 </div>
             </form>
             <p className="registerLink">Already have an account? <Link to="/login">Click Here to Login</Link></p>
-            < AuthRegister />
         </div>
     );
 }
