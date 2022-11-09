@@ -14,7 +14,6 @@ const Home = (props) => {
         including excessive ads and slow load times. Please log in if you have an
         account or feel free a list of supported sports or a game schedule.
       </p>
-      <Link to="/dashboard">Dashboard Link</Link>
     </div>);
 };
 

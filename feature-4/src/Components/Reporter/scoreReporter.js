@@ -1,1 +1,9 @@
-// allow user to add scores to completed games if they are an admin
+import React from 'react';
+
+const ScoreReporter = () => {
+    return (
+        <div>Hello Score Reporter</div>
+    );
+}
+
+export default ScoreReporter;

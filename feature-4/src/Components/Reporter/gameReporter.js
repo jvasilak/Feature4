@@ -1,1 +1,9 @@
-// allow user to add games if they are an admin to the schedule
+import React from 'react';
+
+const GameReporter = () => {
+    return (
+        <div>Hello Game Reporter</div>
+    );
+}
+
+export default GameReporter;

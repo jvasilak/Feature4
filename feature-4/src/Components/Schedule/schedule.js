@@ -2,7 +2,6 @@ import React, {
     useState,
     useEffect
 } from "react";
-
 import { getAllSports } from "../../Services/sports";
 import { getAllGames } from "../../Services/games";
 import { getAllTeams } from "../../Services/teams";
