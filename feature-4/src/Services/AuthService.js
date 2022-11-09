@@ -14,6 +14,7 @@ export const createUser = (newUser) => {
   return user
     .signUp()
     .then((newUserSaved) => {
+      console.log('User saved')
       return newUserSaved;
     })
     .catch((error) => {
