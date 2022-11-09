@@ -1,6 +1,7 @@
-import React from 'react';
+import React, {useState, useNavigate, useEffect} from 'react';
 import { checkUser, createUser } from "../../Services/AuthService";
 import AuthRegister from './AuthRegister';
+import {Link} from 'react-router-dom';
 
 const Register = () => {
     const navigate = useNavigate();
@@ -62,7 +63,7 @@ const Register = () => {
         <div>
             <h1 className="pageHeader">Sign Up</h1>
             <form method="GET" onSubmit={(event) => {
-                createAccount();
+                //createAccount();
             }}>
                 <div className="loginInput">
                 <label>Username</label>
