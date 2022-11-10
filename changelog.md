@@ -24,6 +24,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Protected routing preventing a user from accessing certain pages based on login status
 - Auth components for protecting components from being accessed when not logged in
 - Functions to convert id numbers obtained view parse to their corresponding strings
+- Allow users to create accounts and login
+- Auth methods to help with registration/login
+- Register Component
 
 ### Changed
 - Created new back4app database to address issues with service
