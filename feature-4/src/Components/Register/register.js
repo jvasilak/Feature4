@@ -4,7 +4,7 @@ import AuthRegister from './AuthRegister';
 import AuthForm from "./AuthForm";
 import {Link, useNavigate} from 'react-router-dom';
 
-const Register = () => {
+const Register = (props) => {
     const navigate = useNavigate();
 
     const [newUser, setNewUser] = useState({
@@ -22,7 +22,8 @@ const Register = () => {
     useEffect(() => {
         if (checkUser()) {
         alert("You are already logged in");
-        navigate("/");
+        props.updateLoginStatus(true);
+        navigate("/dashboard");
         }
     }, [navigate]);
 
@@ -35,7 +36,8 @@ const Register = () => {
               alert(
                 `${userCreated.get("firstName")}, you successfully registered!`
               );
-              navigate("/");
+              props.updateLoginStatus(true);
+              navigate("/dashboard");
             }
             // TODO: redirect user to main app
             setAdd(false);

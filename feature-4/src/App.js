@@ -32,7 +32,7 @@ export default function App() {
         <Route path="/sports" element={<Sports/>} />
         <Route path="/login" element={<LoginAuth loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
         <Route path="/dashboard" element={<DashboardAuth loggedIn={loggedIn}/>}/>
-        <Route path="/register" element={<AuthRegister loggedIn={loggedIn}/>} />
+        <Route path="/register" element={<AuthRegister loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
         <Route path="/reportscores" element={<ReporterAuth path="/reportscores" loggedIn={loggedIn}/>} />
         <Route path="/addgames" element={<ReporterAuth path="/addgames" loggedIn={loggedIn}/>} />
       </Routes>
