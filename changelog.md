@@ -27,7 +27,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Allow users to create accounts and login
 - Auth methods to help with registration/login
 - Register Component
+- Connections to back4app to login/sign up a user
 
 ### Changed
 - Created new back4app database to address issues with service
 - Redefined database tables to include more features
+- Moved codebase from CodeSandbox to GitHub
