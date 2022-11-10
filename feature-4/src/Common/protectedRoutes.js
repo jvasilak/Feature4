@@ -1,5 +1,6 @@
-import React from "react";
+import React, {useEffect} from "react";
 import { Navigate } from "react-router-dom";
+import { checkUser } from "../Services/AuthService";
 
 const authPaths = [
   "/login",
@@ -7,18 +8,21 @@ const authPaths = [
 ];
 
 const ProtectedRoute = ({ children, ...rest }) => {
-  console.log("rest: ", rest);
   let flag;
   authPaths.includes(rest.path) ? flag = true : flag = false;
-  console.log("contains path: ", flag);
+  useEffect(() => {
+    if (checkUser()) {
+    rest.updateLoginStatus(true);
+    }
+  }, [rest]);
   return (
     <div>
-      {flag ? rest.loggedIn ? (
+      {flag ? checkUser() ? (
         <Navigate to="/dashboard" replace />
       ) : (
         children
       ) : 
-      rest.loggedIn ? (
+      checkUser() ? (
         children
       ) : (
         <Navigate to="/login" replace/>

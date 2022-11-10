@@ -10,7 +10,6 @@ export const createUser = (newUser) => {
   user.set("lastname", newUser.lastName);
   user.set("email", newUser.email);
 
-  console.log("User: ", user);
   return user
     .signUp()
     .then((newUserSaved) => {
@@ -25,12 +24,9 @@ export const createUser = (newUser) => {
 // used in auth login component
 export const loginUser = (currUser) => {
   const user = new Parse.User();
-
   user.set("password", currUser.password);
-  user.set("username", currUser.email);
+  user.set("username", currUser.username);
 
-  console.log("User: ", user);
-  console.log();
   return user
     .logIn(user.email, user.password)
     .then((currUserSaved) => {

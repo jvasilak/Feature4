@@ -1,8 +1,7 @@
 import React, {useState, useEffect} from 'react';
 import { checkUser, createUser } from "../../Services/AuthService";
-import AuthRegister from './AuthRegister';
 import AuthForm from "./AuthForm";
-import {Link, useNavigate} from 'react-router-dom';
+import {useNavigate} from 'react-router-dom';
 
 const Register = (props) => {
     const navigate = useNavigate();
@@ -25,12 +24,11 @@ const Register = (props) => {
         props.updateLoginStatus(true);
         navigate("/dashboard");
         }
-    }, [navigate]);
+    }, [navigate, props]);
 
     useEffect(() => {
         // checkUser() ? history.push("/home"): null;
         if (newUser && add) {
-          console.log('Here')
           createUser(newUser).then((userCreated) => {
             if (userCreated) {
               alert(
@@ -43,14 +41,11 @@ const Register = (props) => {
             setAdd(false);
           });
         }
-      }, [navigate, newUser, add]);
+      }, [navigate, newUser, add, props]);
     
       const onChangeHandler = (e) => {
         e.preventDefault();
-        console.log(e.target);
         const { name, value: newValue } = e.target;
-        console.log(newValue);
-    
         setNewUser({
           ...newUser,
           [name]: newValue
@@ -59,7 +54,6 @@ const Register = (props) => {
     
       const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log("submitted: ", e.target);
         setAdd(true);
       };
 

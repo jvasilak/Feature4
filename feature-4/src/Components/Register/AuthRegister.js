@@ -1,7 +1,6 @@
 import React from "react";
 import ProtectedRoute from "../../Common/protectedRoutes";
 import Register from "./register";
-import Home from "../Home/home";
 
 const AuthRegister = (props) => {
     return (

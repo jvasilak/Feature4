@@ -5,13 +5,13 @@ import React, {
 import { Link, useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../Services/users";
 import './login.css';
-import { loginUser } from "../../Services/AuthService";
+import { loginUser} from "../../Services/AuthService";
 
   const LoginPage = (props) => {
     const navigate = useNavigate();
     const [users, setUsers] = useState([]);
     const [add, setAdd] = useState(false);
-    const [loginUserInfo, setLoginUser] = useState({
+    const [loginUserInfo, setLoginUserInfo] = useState({
       username: "",
       password: ""
   });
@@ -22,9 +22,8 @@ import { loginUser } from "../../Services/AuthService";
     }, []);
     // We currently do not have many users created, in order to see the effects of a successful login try "admin" for both the username and password
     useEffect(() => {
-      // checkUser() ? history.push("/home"): null;
       if (loginUserInfo && add) {
-        loginUser(loginUser).then((userLoggedIn) => {
+        loginUser(loginUserInfo).then((userLoggedIn) => {
           if (userLoggedIn) {
             alert(
               `${userLoggedIn.get("firstName")}, you successfully logged in!`
@@ -36,21 +35,17 @@ import { loginUser } from "../../Services/AuthService";
           setAdd(false);
         });
       }
-    }, [navigate, loginUserInfo, add]);
+    }, [navigate, loginUserInfo, add, props]);
 
     const onSubmitHandler = (e) => {
       e.preventDefault();
-      console.log("submitted: ", e.target);
       setAdd(true);
     };
 
     const onChangeHandler = (e) => {
       e.preventDefault();
-      console.log(e.target);
       const { name, value: newValue } = e.target;
-      console.log(newValue);
-  
-      setLoginUser({
+      setLoginUserInfo({
         ...loginUserInfo,
         [name]: newValue
       });

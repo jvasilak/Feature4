@@ -1,7 +1,6 @@
 import {Link} from 'react-router-dom';
 
 export default function AuthForm({user, onChange, onSubmit }) {
-    //console.log(user.firstName);
     return (
         <div>
         <h1 className="pageHeader">Sign Up</h1>

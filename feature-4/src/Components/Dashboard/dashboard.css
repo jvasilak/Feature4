@@ -17,3 +17,13 @@ body {
     font-family: "Josefin Sans", serif, sans-serif;
     text-align: center;
   }
+
+.sectionHeader {
+  text-align: center;
+  font-family: "Inter", serif, sans-serif;
+  list-style: none;
+}
+
+.sectionHeader ul{
+  list-style: none;
+}

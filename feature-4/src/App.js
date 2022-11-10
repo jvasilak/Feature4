@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useState, useEffect} from 'react';
 import Navigation from "./Components/navigation";
 import Home from "./Components/Home/home.js";
 import Schedule  from './Components/Schedule/schedule';
@@ -14,15 +14,21 @@ import LoginAuth from './Components/Login/loginAuth';
 import DashboardAuth from "./Components/Dashboard/dashboardAuth";
 import AuthRegister from './Components/Register/AuthRegister';
 import ReporterAuth from './Components/Reporter/reporterAuth';
+import { checkUser } from './Services/AuthService';
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
-
+// currently protected components: Dashboard, Login, Register, ScoreReporter, GameReporter
 export default function App() {
   const [loggedIn, setLoggedIn] = useState(false);
   const updateLoginStatus = (status) => {
     setLoggedIn(status);
   };
+  useEffect(() => {
+    if (checkUser()) {
+      setLoggedIn(true);
+    }
+  }, []);
   return (
     <Router>
     <Navigation loggedIn={loggedIn}/>
@@ -31,10 +37,10 @@ export default function App() {
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/sports" element={<Sports/>} />
         <Route path="/login" element={<LoginAuth loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
-        <Route path="/dashboard" element={<DashboardAuth loggedIn={loggedIn}/>}/>
+        <Route path="/dashboard" element={<DashboardAuth loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>}/>
         <Route path="/register" element={<AuthRegister loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
-        <Route path="/reportscores" element={<ReporterAuth path="/reportscores" loggedIn={loggedIn}/>} />
-        <Route path="/addgames" element={<ReporterAuth path="/addgames" loggedIn={loggedIn}/>} />
+        <Route path="/reportscores" element={<ReporterAuth path="/reportscores" loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
+        <Route path="/addgames" element={<ReporterAuth path="/addgames" loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
       </Routes>
     </Router>
   
