@@ -15,7 +15,7 @@ const Dashboard = (props) => {
         return (<AdminDashboard />);
     } else {
         return (<div>
-            <h1 className='pageHeader'>Welcome <i>{user.get("username")}</i></h1>
+            <h1 className='pageHeader'>Welcome <i>{user.get("firstname")}</i></h1>
             <div className='sectionHeader'>
                 <h2>Teams</h2>
                 <ul>
