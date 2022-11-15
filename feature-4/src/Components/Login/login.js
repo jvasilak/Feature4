@@ -26,7 +26,7 @@ import { loginUser} from "../../Services/AuthService";
         loginUser(loginUserInfo).then((userLoggedIn) => {
           if (userLoggedIn) {
             alert(
-              `${userLoggedIn.get("firstName")}, you successfully logged in!`
+              `${userLoggedIn.attributes.firstname}, you successfully logged in!`
             );
             props.updateLoginStatus(true);
             navigate("/dashboard");
