@@ -4,6 +4,12 @@ import Parse from "parse";
 import AdminDashboard from "./adminDashboard.js";
 
 const Dashboard = (props) => {
+
+    function handleLogout() {
+        localStorage.clear();
+        window.location.reload(false);
+    }
+
     const user = Parse.User.current();
     if (user.get("admin")) {
         return (<AdminDashboard />);
@@ -25,6 +31,9 @@ const Dashboard = (props) => {
                         Your upcoming games will go here
                     </li>
                 </ul>
+            </div>
+            <div className='logoutContainer'>
+                <button className='logout' onClick={handleLogout}>Logout</button>
             </div>
         </div>);
     }
