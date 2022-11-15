@@ -15,6 +15,7 @@ import DashboardAuth from "./Components/Dashboard/dashboardAuth";
 import AuthRegister from './Components/Register/AuthRegister';
 import ReporterAuth from './Components/Reporter/reporterAuth';
 import { checkUser } from './Services/AuthService';
+import { SportInfo } from './Components/Sports/SportInfo/sportinfo';
 
 Parse.initialize(Env.APPLICATION_ID, Env.JAVASCRIPT_KEY);
 Parse.serverURL = Env.SERVER_URL;
@@ -36,6 +37,7 @@ export default function App() {
         <Route path="/" exact element={<Home />} />
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/sports" element={<Sports/>} />
+        <Route path="/sportinfo" element={<SportInfo/>} />
         <Route path="/login" element={<LoginAuth loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
         <Route path="/dashboard" element={<DashboardAuth loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>}/>
         <Route path="/register" element={<AuthRegister loggedIn={loggedIn} updateLoginStatus={updateLoginStatus}/>} />
