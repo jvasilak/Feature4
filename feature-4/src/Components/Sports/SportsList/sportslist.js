@@ -38,7 +38,7 @@ const SportsList = (props) => {
         <ul className="sportsList">
             {sports.map((sport) => {
                 return (
-                    <li onClick={() => {alert("click")}}>
+                    <li onClick={() => {console.log("click")}}>
                         <Link to={{pathname:"/sportinfo", sportName:sport.get("Name")}} >
                             <img src={getLogoPath(sport.get("Name"))} alt="sport icon"></img>
                             <p>{sport.get("Name")}</p>
