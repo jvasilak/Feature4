@@ -39,7 +39,7 @@ const SportsList = (props) => {
             {sports.map((sport) => {
                 return (
                     <li onClick={() => {console.log("click")}}>
-                        <Link to="/sportinfo" state={sport.get("Name")} >
+                        <Link to="/sportinfo" state={sport} >
                             <img src={getLogoPath(sport.get("Name"))} alt="sport icon"></img>
                             <p>{sport.get("Name")}</p>
                         </Link>
