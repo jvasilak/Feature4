@@ -3,6 +3,7 @@ import React, {
     useEffect
   } from "react";
 import { getAllSports } from "../../../Services/sports";
+import { Link } from "react-router-dom";
 import './sportslist.css';
 
 const SportsLogoPaths = {
@@ -35,7 +36,16 @@ const SportsList = (props) => {
     if (sports.length > 0) {
         return (<div>
         <ul className="sportsList">
-            {sports.map((sport) =>  <li><img src={getLogoPath(sport.get("Name"))} alt="sport icon"></img><p>{sport.get("Name")}</p></li>)}
+            {sports.map((sport) => {
+                return (
+                    <li onClick={() => {console.log("click")}}>
+                        <Link to="/sportinfo" state={sport} >
+                            <img src={getLogoPath(sport.get("Name"))} alt="sport icon"></img>
+                            <p>{sport.get("Name")}</p>
+                        </Link>
+                    </li>
+                );
+            })}
         </ul>
         </div>);
     } else {

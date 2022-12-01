@@ -94,8 +94,8 @@ const Schedule = () => {
           .map(
             (game) =>
               (<li>
-                <b> {convertSportID(game.get("SportID"), sports)}:</b> {convertTeamID(game.get("Team1ID"), teams)} vs
-                {" "}{convertTeamID(game.get("Team2ID"), teams)} {gameTime(game.get("GameTime"))}
+                <b> {convertSportID(game.get("SportID"), sports)}:</b> {gameTime(game.get("GameTime"))} {convertTeamID(game.get("Team1ID"), teams)} vs
+                {" "}{convertTeamID(game.get("Team2ID"), teams)}
               </li>)
           )}
       </ul>
