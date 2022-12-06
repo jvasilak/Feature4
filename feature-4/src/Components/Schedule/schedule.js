@@ -30,7 +30,6 @@ function convertSportID(ID, sports) {
 }
 
 const Schedule = () => {
-  // TODO: add the ability to read the current date into the selected day value, set it as default
   const [selectedDay, setSelectedDay] = useState(getDate());
   const [dateOffset, setDateOffset] = useState(0);
   const [games, setGames] = useState([]);
@@ -102,7 +101,9 @@ const Schedule = () => {
       </ul>
     </div>);
   } else {
-    return (<CircularProgress />);
+    return (<div className="progressBar">
+      <CircularProgress />
+    </div>);
   }
 };
 

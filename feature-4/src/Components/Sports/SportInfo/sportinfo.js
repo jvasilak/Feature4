@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import { useLocation } from 'react-router-dom';
 import { getLeagues } from '../../../Services/leagues';
 import Standings from '../../Standings/standings';
+import './sportinfo.css';
+import CircularProgress from "@mui/material/CircularProgress";
 
 export const SportInfo = (props) => {
     const location = useLocation();
@@ -13,8 +15,8 @@ export const SportInfo = (props) => {
     }, []);
     if (leagues.length > 0) {
         return(<div>
-            <h1>{location.state.get("Name")}</h1>
-            <ul>
+            <h1 className='pageHeader'>{location.state.get("Name")}</h1>
+            <ul className='leagueTitle'>
                 {leagues.filter(function (league) {
                     return league.get("SportID") == location.state.get("ID");
                 }).map((league) => {
@@ -24,7 +26,7 @@ export const SportInfo = (props) => {
         </div>);
     } else {
         return(
-            <h1>{location.state.get("ID")}</h1>
+            <CircularProgress/>
         );
     }
 }
