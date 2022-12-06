@@ -7,6 +7,7 @@ import { getAllGames } from "../../Services/games";
 import { getAllTeams } from "../../Services/teams";
 import { getDate } from "./../../Services/date";
 import './schedule.css';
+import CircularProgress from "@mui/material/CircularProgress";
 
 function convertTeamID(ID, teams) {
   let teamName = "";
@@ -29,7 +30,6 @@ function convertSportID(ID, sports) {
 }
 
 const Schedule = () => {
-  // TODO: add the ability to read the current date into the selected day value, set it as default
   const [selectedDay, setSelectedDay] = useState(getDate());
   const [dateOffset, setDateOffset] = useState(0);
   const [games, setGames] = useState([]);
@@ -101,7 +101,9 @@ const Schedule = () => {
       </ul>
     </div>);
   } else {
-    return (<div className="loader"></div>);
+    return (<div className="progressBar">
+      <CircularProgress />
+    </div>);
   }
 };
 

@@ -1,0 +1,19 @@
+.styledHeader {
+    background-color: darkslategray;
+}
+
+.styledHeader p{
+    font-family: "Open Sans", sans-serif, serif;
+    color: palegoldenrod;
+    font-size: 14;
+}
+
+.styledRow {
+    background-color: palegoldenrod;
+}
+
+.styledRow p{
+    font-family: "Open Sans", sans-serif, serif;
+    color: darkslategray;
+    font-size: 14;
+}

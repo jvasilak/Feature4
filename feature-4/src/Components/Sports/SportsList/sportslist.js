@@ -5,6 +5,7 @@ import React, {
 import { getAllSports } from "../../../Services/sports";
 import { Link } from "react-router-dom";
 import './sportslist.css';
+import CircularProgress from "@mui/material/CircularProgress";
 
 const SportsLogoPaths = {
     "Interhall Tackle Football": require("./../../../Images/Sports/football.png"),
@@ -49,7 +50,7 @@ const SportsList = (props) => {
         </ul>
         </div>);
     } else {
-        return (<div className="loader"></div>);
+        return (<CircularProgress />);
     }
 };
 

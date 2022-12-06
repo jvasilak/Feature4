@@ -1,9 +1,43 @@
 import React, {useEffect, useState} from 'react';
 import { getAllTeams } from '../../Services/teams';
+import Table from '@mui/material/Table';
+import { styled } from '@mui/material/styles';
+import TableContainer from '@mui/material/TableContainer';
+import TableHead from '@mui/material/TableHead';
+import TableRow from '@mui/material/TableRow';
+import TableCell, { tableCellClasses } from '@mui/material/TableCell';
+import TableBody from '@mui/material/TableBody';
+import './standings.css';
+import CircularProgress from "@mui/material/CircularProgress";
+
 
 // win percent, head to head, goal difference
-const sortStandings = () => {
-
+const sortStandings = (teams) => {
+    const len = Object.keys(teams).length;
+    let indexes = []
+    let percents = []
+    for(let i = 0; i < len; i++) {
+        indexes.push(i);
+        percents.push(teams[i].get("WinPct"));
+    }
+    // bubble sort because I'm lazy
+    for (let i = 0; i < len; i++) {
+        for (let j = 0; j < len-i; j++) {
+            if (percents[j] < percents[j+1]) { 
+                const tempPct = percents[j];
+                const tempIndex = indexes[j];
+                percents[j] = percents[j+1];
+                indexes[j] = indexes[j+1];
+                percents[j+1] = tempPct;
+                indexes[j+1] = tempIndex;  
+            }
+        }
+    }
+    let sortedTeams = [];
+    for(let i = 0; i < len; i++) {
+        sortedTeams.push(teams[indexes[i]]);
+    }
+    return sortedTeams;
 }
 
 const Standings = (props) => {
@@ -19,25 +53,48 @@ const Standings = (props) => {
             return props.teamIDs.includes(team.get("ID"))
         }));
     }, [allTeams]);
-    let [sortedTeams, setSortedTeams] = useState([]);
+    const [sortedTeams, setSortedTeams] = useState([]);
     useEffect(() => {
-        setSortedTeams(
-            Object.entries(teams).sort((a,b) => a["WinPct"] > b["WinPct"])
-        )
+        if (teams.length > 0) {
+            setSortedTeams(() => sortStandings(teams));
+        }
     }, [teams]);
-    console.log(teams);
-    console.log(sortedTeams);
+    if(Object.keys(sortedTeams).length > 0) {
     return(
         <div>
-            <ul>
-                <li>Team | GP | W | L | T | PCT</li>
-                {teams.map((team) => {
-                    return(<li>{team.get("Name")} {team.get("GamesPlayed")} {team.get("Wins")} 
-                    {" "}{team.get("Losses")} {team.get("Ties")} {team.get("WinPct")}</li>);
+            <TableContainer>
+                <Table>
+                    <TableHead>
+                        <TableRow>
+                            <TableCell className='styledHeader'><p>Name</p></TableCell>
+                            <TableCell className='styledHeader'><p>GamesPlayed</p></TableCell>
+                            <TableCell className='styledHeader'><p>Wins</p></TableCell>
+                            <TableCell className='styledHeader'><p>Losses</p></TableCell>
+                            <TableCell className='styledHeader'><p>Ties</p></TableCell>
+                            <TableCell className='styledHeader'><p>Percent</p></TableCell>
+                        </TableRow>
+                    </TableHead>
+                    <TableBody>
+                    {sortedTeams.map((team) => {
+                    return(
+                        <TableRow>
+                            <TableCell className='styledRow'><p>{team.get("Name")}</p></TableCell>
+                            <TableCell className='styledRow'><p>{team.get("GamesPlayed")}</p></TableCell>
+                            <TableCell className='styledRow'><p>{team.get("Wins")}</p></TableCell>
+                            <TableCell className='styledRow'><p>{team.get("Losses")}</p></TableCell>
+                            <TableCell className='styledRow'><p>{team.get("Ties")}</p></TableCell>
+                            <TableCell className='styledRow'><p>{parseFloat(team.get("WinPct"))}</p></TableCell>
+                        </TableRow>
+                    );
                 })}
-            </ul>
+                    </TableBody>
+                </Table>
+            </TableContainer>
         </div>
     )
+    } else {
+        return <CircularProgress/>;
+    }
 }
 
 export default Standings;

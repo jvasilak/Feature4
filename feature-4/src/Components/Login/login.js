@@ -6,6 +6,9 @@ import { Link, useNavigate } from "react-router-dom";
 import { getAllUsers } from "../../Services/users";
 import './login.css';
 import { loginUser} from "../../Services/AuthService";
+import Alert from '@mui/material/Alert';
+import CircularProgress from "@mui/material/CircularProgress";
+
 
   const LoginPage = (props) => {
     const navigate = useNavigate();
@@ -15,6 +18,7 @@ import { loginUser} from "../../Services/AuthService";
       username: "",
       password: ""
   });
+  const [failedLogin, setFailedLogin] = useState(false);
     useEffect(() => {
       getAllUsers().then((users) => {
         setUsers(users);
@@ -30,6 +34,8 @@ import { loginUser} from "../../Services/AuthService";
             );
             props.updateLoginStatus(true);
             navigate("/dashboard");
+          } else {
+            setFailedLogin(true);
           }
           // TODO: redirect user to main app
           setAdd(false);
@@ -82,11 +88,12 @@ import { loginUser} from "../../Services/AuthService";
             <input className="loginSubmit" type="submit" />
           </div>
         </form>
-        <p className="registerLink">Don't have an account? <Link to="/register">Click Here to Register</Link></p>
+        {failedLogin ? <Alert variant="outlined" severity="error" onClose={() => {setFailedLogin(false)}}>Login Failed: Invalid username/password.</Alert> : <></>}
+        <p className="registerLink">Don't have an account? <Link className="registerLink" to="/register">Click Here to Register</Link></p>
       </div>
       );
     } else {
-      return (<div className="loader"></div>); 
+      return (<CircularProgress />); 
     }
   };
   
