@@ -1,0 +1,28 @@
+.page-body {
+    margin: 10px;
+}
+
+.changeScoreForm {
+    display: flex;
+    flex-direction: column;
+}
+
+.changeScoreSubmit {
+    padding: 2px;
+    background-color: darkslategray;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 6px;
+    font-family: "Open Sans", "Josefin Sans", serif;
+    height: 30px;
+    width: 100px;
+  }
+
+  .changeScoreSubmit:hover {
+    cursor: pointer;
+    opacity: 50%;
+  }
+
+  label {
+    margin-right: 5px;
+  }
