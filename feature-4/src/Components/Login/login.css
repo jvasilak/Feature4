@@ -37,3 +37,7 @@
   .registerLink {
     text-align: center;
   }
+
+  .registerLink a:visited {
+    color: black;
+  }

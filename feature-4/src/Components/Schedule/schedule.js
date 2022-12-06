@@ -7,6 +7,7 @@ import { getAllGames } from "../../Services/games";
 import { getAllTeams } from "../../Services/teams";
 import { getDate } from "./../../Services/date";
 import './schedule.css';
+import CircularProgress from "@mui/material/CircularProgress";
 
 function convertTeamID(ID, teams) {
   let teamName = "";
@@ -101,7 +102,7 @@ const Schedule = () => {
       </ul>
     </div>);
   } else {
-    return (<div className="loader"></div>);
+    return (<CircularProgress />);
   }
 };
 

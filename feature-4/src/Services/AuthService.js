@@ -33,7 +33,7 @@ export const loginUser = (currUser) => {
       return currUserSaved;
     })
     .catch((error) => {
-      alert(`Error: ${error.message}`);
+      //alert(`Error: ${error.message}`);
     });
 };
 

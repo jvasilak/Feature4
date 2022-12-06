@@ -25,4 +25,24 @@ const Navigation = (props) => {
   );
 };
 
+/*
+const Navigation = (props) => {
+  <Tabs value={value} onChange={handleChange} aria-label="basic tabs example">
+    <Tab label="Item One" {...a11yProps(0)} />
+    <Tab label="Item Two" {...a11yProps(1)} />
+    <Tab label="Item Three" {...a11yProps(2)} />
+  </Tabs>
+  return (
+      <ul className="navigation">
+        <li className='navigationEntry'><Link to="/" className='navigationEntry'>Home</Link></li>
+        <li className='navigationEntry'><Link to="/sports" className='navigationEntry'>Sports</Link></li>
+        <li className='navigationEntry'><Link to="/schedule" className='navigationEntry'>Schedule</Link></li>
+        {props.loggedIn ? <li className='navigationEntry'><Link to="/dashboard" className='navigationEntry'>Dashboard</Link></li>
+          : <li className='navigationEntry'><Link to="/login" className='navigationEntry'>Login</Link></li>
+        }
+      </ul>
+  );
+};
+*/
+
 export default Navigation;
