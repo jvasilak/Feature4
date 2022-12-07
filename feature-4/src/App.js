@@ -34,7 +34,7 @@ export default function App() {
     <Router>
     <Navigation loggedIn={loggedIn}/>
       <Routes>
-        <Route path="/" exact element={<Home />} />
+        <Route path="/" exact element={<Home loggedIn={loggedIn}/>} />
         <Route path="/schedule" element={<Schedule/>} />
         <Route path="/sports" element={<Sports/>} />
         <Route path="/sportinfo" element={<SportInfo/>} />
