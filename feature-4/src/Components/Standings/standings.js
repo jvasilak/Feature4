@@ -67,7 +67,7 @@ const Standings = (props) => {
                     <TableHead>
                         <TableRow>
                             <TableCell className='styledHeader'><p>Name</p></TableCell>
-                            <TableCell className='styledHeader'><p>GamesPlayed</p></TableCell>
+                            <TableCell className='styledHeader'><p>Games Played</p></TableCell>
                             <TableCell className='styledHeader'><p>Wins</p></TableCell>
                             <TableCell className='styledHeader'><p>Losses</p></TableCell>
                             <TableCell className='styledHeader'><p>Ties</p></TableCell>

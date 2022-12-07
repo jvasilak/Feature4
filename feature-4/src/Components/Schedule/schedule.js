@@ -7,6 +7,12 @@ import { getAllGames } from "../../Services/games";
 import { getAllTeams } from "../../Services/teams";
 import { getDate } from "./../../Services/date";
 import './schedule.css';
+import { Link } from "react-router-dom";
+import Card from "@mui/material/Card";
+import Stack from '@mui/material/Stack';
+import IconButton from '@mui/material/IconButton';
+import ArrowBackIcon from '@mui/icons-material/ArrowBack';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import CircularProgress from "@mui/material/CircularProgress";
 
 function convertTeamID(ID, teams) {
@@ -27,6 +33,21 @@ function convertSportID(ID, sports) {
     }
   })
   return sportName;
+}
+
+function checkTeamScore(score) {
+  if(!score) {
+    return "-"
+  }
+  return score;
+}
+
+function getSportByID(id, sports) {
+  return (sports.map((sport) => {
+    if(sport.get("ID") == id) {
+      return sport
+    }
+  }));
 }
 
 const Schedule = () => {
@@ -80,9 +101,13 @@ const Schedule = () => {
     return (<div>
       <h1 className="pageHeader">Schedule</h1>
       <div className="dateSelectorParent">
-        <button className="dateSelector" onClick={() => updateDay(-1)}>{"<"}</button>
+        <IconButton className="dateSelector" onClick={() => updateDay(-1)}>
+          <ArrowBackIcon />
+        </IconButton>
         <h3 className="dateSelector">{selectedDay}</h3>
-        <button className="dateSelector" onClick={() => updateDay(1)}>{">"}</button>
+        <IconButton className="dateSelector" onClick={() => updateDay(1)}>
+          <ArrowForwardIcon />
+        </IconButton>   
       </div>
       <ul className="gameSchedule">
         {games
@@ -93,10 +118,22 @@ const Schedule = () => {
           })
           .map(
             (game) =>
-              (<li>
-                <b> {convertSportID(game.get("SportID"), sports)}:</b> {gameTime(game.get("GameTime"))} {convertTeamID(game.get("Team1ID"), teams)} vs
-                {" "}{convertTeamID(game.get("Team2ID"), teams)}
-              </li>)
+              (
+              <Card><li>
+                <Stack direction="row" alignItems="center" justifyContent="space-between">
+                  <p>{convertTeamID(game.get("Team1ID"), teams)}</p>
+                  <Link to="/sportinfo" state={getSportByID(game.get("SportID"), sports)[0]} className="sportsListLink">
+                    <p>{convertSportID(game.get("SportID"), sports)}</p>
+                  </Link>
+                  <p>{convertTeamID(game.get("Team2ID"), teams)}</p>
+                </Stack>
+                <Stack direction="row" alignItems="center" justifyContent="space-between">
+                  <p>{checkTeamScore(game.get("Team1score"))}</p>
+                  <p>{gameTime(game.get("GameTime"))}</p>
+                  <p>{checkTeamScore(game.get("Team2score"))}</p>
+                </Stack>
+              </li>
+              </Card>)
           )}
       </ul>
     </div>);

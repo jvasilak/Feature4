@@ -1,3 +1,13 @@
+.pageHeader {
+  font-family: "Josefin Sans", serif, sans-serif;
+  text-align: center;
+}
+
+.sportsListLink {
+  color: black;
+  text-decoration: none;
+}
+
 .scheduleSelector {
     padding: 15px 0;
     font-size: 24px;
@@ -21,6 +31,7 @@
   }
   .dateSelectorParent {
     text-align: center;
+    background-color: darkslategray;
   }
 
   .dateSelector {
