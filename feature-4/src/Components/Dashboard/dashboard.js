@@ -2,6 +2,7 @@ import React from 'react';
 import './dashboard.css';
 import Parse from "parse";
 import AdminDashboard from "./adminDashboard.js";
+import { Link } from "react-router-dom";
 
 const Dashboard = (props) => {
 
@@ -23,6 +24,9 @@ const Dashboard = (props) => {
                         Your teams will go here
                     </li>
                 </ul>
+            </div>
+            <div className="addTeamLink">
+                <Link to="/dashboard/addteam" className="addTeamTitle"><span className="addTeam">Add Team</span></Link>
             </div>
             <div className='sectionHeader'>
                 <h2>Games</h2>

@@ -28,6 +28,27 @@ body {
   list-style: none;
 }
 
+.addTeamLink {
+  display: flex;
+  justify-content: center;
+}
+
+.addTeamTitle {
+  text-decoration: none;
+  color: white;
+  width: 250px;
+  height: 50px;
+  line-height: 50px;
+  background-color: darkslategray;
+  text-align: center;
+  text-decoration: none;
+}
+
+.addTeamTitle:hover {
+  background-color: darkcyan;
+    cursor: pointer;
+}
+
 .logout {
   padding: 2px;
   background-color: darkslategray;

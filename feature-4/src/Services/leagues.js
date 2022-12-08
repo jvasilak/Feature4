@@ -25,6 +25,5 @@ export const addLeague = (newLeague) => {
     // Save fails
     alert('Failed to create new object, with error code: ' + error.message);
   });
-
 }
   

@@ -9,3 +9,21 @@ export const getAllTeams = () => {
       return results;
     });
   };
+
+export const addTeam = (newTeam) => {
+  const Teams = Parse.Object.extend("Teams");
+  const teams = new Teams();
+
+  teams.set("LeagueID", newTeam.leagueId);
+  teams.set("SportID", newTeam.sportId);
+  teams.set("Name", newTeam.name);
+
+  teams.save()
+  .then(() => {
+    // Success
+    alert('New object created successfully');
+  }, (error) => {
+    // Save fails
+    alert('Failed to create new object, with error code: ' + error.message);
+  });
+}

@@ -17,7 +17,7 @@ export default function AddTeam() {
             ['name'] : document.getElementById('name').value
         });
 
-        // addTeam(team);
+        addTeam(team);
         console.log('Submitted');
     }
 
