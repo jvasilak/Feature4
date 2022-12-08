@@ -1,0 +1,15 @@
+.addLeagueSubmit {
+    padding: 2px;
+    background-color: darkslategray;
+    text-align: center;
+    font-size: 12px;
+    border-radius: 6px;
+    font-family: "Open Sans", "Josefin Sans", serif;
+    height: 30px;
+    width: 100px;
+}
+
+.addLeagueSubmit:hover {
+    cursor: pointer;
+    opacity: 50%;
+}

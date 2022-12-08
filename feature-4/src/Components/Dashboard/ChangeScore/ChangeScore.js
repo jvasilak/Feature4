@@ -1,5 +1,6 @@
 import "./ChangeScore.css";
 import { useState } from "react";
+import { updateGame } from "../../../Services/games.js";
 
 export default function ChangeScore(props) {
 
@@ -13,9 +14,12 @@ export default function ChangeScore(props) {
         event.preventDefault();
         setGame({
             ['objectId']: document.getElementById('id').value ,
-            ['team1score'] : parseInt(document.getElementById('team1score').value) ,
-            ['team2score'] : parseInt(document.getElementById('team2score').value)
+            ['team1score'] : document.getElementById('team1score').value ,
+            ['team2score'] : document.getElementById('team2score').value
         });
+
+        updateGame(game);
+        console.log('Submitted');
     }
 
     console.log(game);
