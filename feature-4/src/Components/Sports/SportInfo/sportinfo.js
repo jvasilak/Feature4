@@ -18,7 +18,7 @@ export const SportInfo = (props) => {
             <h1 className='pageHeader'>{location.state.get("Name")}</h1>
             <ul className='leagueTitle'>
                 {leagues.filter(function (league) {
-                    return league.get("SportID") == location.state.get("ID");
+                    return league.get("SportID") === location.state.get("ID");
                 }).map((league) => {
                     return (<li>{league.get("Title")} <Standings teamIDs={league.get("TeamIDs")}/></li>);
                 })}

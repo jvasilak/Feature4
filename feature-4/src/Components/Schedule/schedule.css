@@ -22,13 +22,24 @@
     flex-flow: column wrap;
     list-style: none;
     text-align: left;
+    padding-left: 20px;
+    padding-right: 20px;
   }
   
   .gameSchedule li {
     font-family: "Open Sans", sans-serif, serif;
     font-size: 18px;
-    padding: 10px;
+    padding-left: 20px;
+    padding-right: 20px;
+    margin-bottom: 20px;
   }
+.gameEntry {
+  margin-bottom: 20px;
+}
+
+.gameEntryText {
+  font-family: "Open Sans", sans-serif, serif;
+}
   .dateSelectorParent {
     text-align: center;
     background-color: darkslategray;

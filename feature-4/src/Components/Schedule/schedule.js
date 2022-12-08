@@ -36,15 +36,17 @@ function convertSportID(ID, sports) {
 }
 
 function checkTeamScore(score) {
-  if(!score) {
+  if(!score && score != 0) {
     return "-"
   }
   return score;
 }
 
 function getSportByID(id, sports) {
+  console.log(sports);
   return (sports.map((sport) => {
-    if(sport.get("ID") == id) {
+    if(sport.get("ID") === id) {
+      //console.log(sport);
       return sport
     }
   }));
@@ -119,18 +121,18 @@ const Schedule = () => {
           .map(
             (game) =>
               (
-              <Card><li>
+              <Card className="gameEntry"><li>
                 <Stack direction="row" alignItems="center" justifyContent="space-between">
-                  <p>{convertTeamID(game.get("Team1ID"), teams)}</p>
-                  <Link to="/sportinfo" state={getSportByID(game.get("SportID"), sports)[0]} className="sportsListLink">
-                    <p>{convertSportID(game.get("SportID"), sports)}</p>
+                  <p className="gameEntryText">{convertTeamID(game.get("Team1ID"), teams)}</p>
+                  <Link to="/sportinfo" state={getSportByID(game.get("SportID"), sports)[2]} className="sportsListLink">
+                    <p className="gameEntryText">{convertSportID(game.get("SportID"), sports)}</p>
                   </Link>
-                  <p>{convertTeamID(game.get("Team2ID"), teams)}</p>
+                  <p className="gameEntryText">{convertTeamID(game.get("Team2ID"), teams)}</p>
                 </Stack>
                 <Stack direction="row" alignItems="center" justifyContent="space-between">
-                  <p>{checkTeamScore(game.get("Team1score"))}</p>
-                  <p>{gameTime(game.get("GameTime"))}</p>
-                  <p>{checkTeamScore(game.get("Team2score"))}</p>
+                  <p className="gameEntryText">{checkTeamScore(game.get("Team1score"))}</p>
+                  <p className="gameEntryText">{gameTime(game.get("GameTime"))}</p>
+                  <p className="gameEntryText">{checkTeamScore(game.get("Team2score"))}</p>
                 </Stack>
               </li>
               </Card>)
