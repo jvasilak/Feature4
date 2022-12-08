@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from 'react';
 import { getAllTeams } from '../../Services/teams';
 import Table from '@mui/material/Table';
-import { styled } from '@mui/material/styles';
 import TableContainer from '@mui/material/TableContainer';
 import TableHead from '@mui/material/TableHead';
 import TableRow from '@mui/material/TableRow';
@@ -61,29 +60,29 @@ const Standings = (props) => {
     }, [teams]);
     if(Object.keys(sortedTeams).length > 0) {
     return(
-        <div>
+        <div className='standingsTable'>
             <TableContainer>
                 <Table>
                     <TableHead>
                         <TableRow>
-                            <TableCell className='styledHeader'><p>Name</p></TableCell>
-                            <TableCell className='styledHeader'><p>GamesPlayed</p></TableCell>
-                            <TableCell className='styledHeader'><p>Wins</p></TableCell>
-                            <TableCell className='styledHeader'><p>Losses</p></TableCell>
-                            <TableCell className='styledHeader'><p>Ties</p></TableCell>
-                            <TableCell className='styledHeader'><p>Percent</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Name</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Games Played</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Wins</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Losses</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Ties</p></TableCell>
+                            <TableCell className='styledHeader'><p className='standingsText'>Percent</p></TableCell>
                         </TableRow>
                     </TableHead>
                     <TableBody>
                     {sortedTeams.map((team) => {
                     return(
                         <TableRow>
-                            <TableCell className='styledRow'><p>{team.get("Name")}</p></TableCell>
-                            <TableCell className='styledRow'><p>{team.get("GamesPlayed")}</p></TableCell>
-                            <TableCell className='styledRow'><p>{team.get("Wins")}</p></TableCell>
-                            <TableCell className='styledRow'><p>{team.get("Losses")}</p></TableCell>
-                            <TableCell className='styledRow'><p>{team.get("Ties")}</p></TableCell>
-                            <TableCell className='styledRow'><p>{parseFloat(team.get("WinPct"))}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{team.get("Name")}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{team.get("GamesPlayed")}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{team.get("Wins")}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{team.get("Losses")}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{team.get("Ties")}</p></TableCell>
+                            <TableCell className='styledRow'><p className='standingsText'>{parseFloat(team.get("WinPct"))}</p></TableCell>
                         </TableRow>
                     );
                 })}

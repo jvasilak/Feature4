@@ -14,6 +14,17 @@ const Home = (props) => {
         including excessive ads and slow load times. Please log in if you have an
         account or feel free a list of supported sports or a game schedule.
       </p>
+      { props.loggedIn ? <></> :
+        <p className='bodyText'>
+          We recommend you login or create an account if you do not already have one. Simply click
+          the login tab to be taken there.
+        </p>
+      }
+      <p className='bodyText'>
+        In order to view past or upcoming games, go to the schedule tab. In order to view a list of sports
+        or league standings, go to the sports tab and click the sport you wish to see. Note that not all sports
+        results or leagues added.
+      </p>
     </div>);
 };
 
