@@ -33,3 +33,13 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 - Created new back4app database to address issues with service
 - Redefined database tables to include more features
 - Moved codebase from CodeSandbox to GitHub
+
+
+## [0.6.1] - 2022-12-10 (Feature 6)
+
+### Added
+- Added unit testing to informational components
+- Added new components that display information about a single sport and standings for leagues of that sport
+
+### Changed
+- Changed styling of many components in the information modules to incorporate Material UI
