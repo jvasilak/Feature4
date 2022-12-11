@@ -26,7 +26,7 @@ export const SportInfo = (props) => {
         </div>);
     } else {
         return(
-            <CircularProgress/>
+            <CircularProgress data-cy="Loader"/>
         );
     }
 }

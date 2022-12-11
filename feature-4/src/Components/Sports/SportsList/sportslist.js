@@ -35,11 +35,11 @@ const SportsList = (props) => {
         return SportsLogoPaths[sport];
     }
     if (sports.length > 0) {
-        return (<div>
+        return (<div data-cy="Loaded">
         <ul className="sportsList">
             {sports.map((sport) => {
                 return (
-                    <li onClick={() => {console.log("click")}}>
+                    <li data-cy="SportItem">
                         <Link to="/sportinfo" state={sport} className="sportsListLink">
                             <img src={getLogoPath(sport.get("Name"))} alt="sport icon"></img>
                             <p className="sportsListLink">{sport.get("Name")}</p>
@@ -50,7 +50,7 @@ const SportsList = (props) => {
         </ul>
         </div>);
     } else {
-        return (<CircularProgress />);
+        return (<CircularProgress data-cy="Loader"/>);
     }
 };
 

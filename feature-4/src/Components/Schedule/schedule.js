@@ -100,14 +100,14 @@ const Schedule = () => {
     setSelectedDay(getDate(newOffset));
   };
   if (games.length > 0 && sports.length > 0) {
-    return (<div>
+    return (<div data-cy="Loaded">
       <h1 className="pageHeader">Schedule</h1>
       <div className="dateSelectorParent">
-        <IconButton className="dateSelector" onClick={() => updateDay(-1)}>
+        <IconButton className="dateSelector" data-cy="DecrementDay" onClick={() => updateDay(-1)}>
           <ArrowBackIcon />
         </IconButton>
-        <h3 className="dateSelector">{selectedDay}</h3>
-        <IconButton className="dateSelector" onClick={() => updateDay(1)}>
+        <h3 className="dateSelector" data-cy="DateDisplay">{selectedDay}</h3>
+        <IconButton className="dateSelector" data-cy="IncrementDay" onClick={() => updateDay(1)}>
           <ArrowForwardIcon />
         </IconButton>   
       </div>
@@ -140,7 +140,7 @@ const Schedule = () => {
       </ul>
     </div>);
   } else {
-    return (<div className="progressBar">
+    return (<div className="progressBar" data-cy="Loader">
       <CircularProgress />
     </div>);
   }

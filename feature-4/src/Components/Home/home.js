@@ -6,7 +6,7 @@ const Home = (props) => {
   // Todo: add a bit of text that lets the user know if they are logged in
   // if they are logged in say a greeting to them
   return (
-    <div>
+    <div data-cy="body">
       <h1 className="pageHeader">Home</h1>
       <p className="bodyText">
         Welcome to our reworked RecSports website for Notre Dame. We hope to fix
@@ -15,7 +15,7 @@ const Home = (props) => {
         account or feel free a list of supported sports or a game schedule.
       </p>
       { props.loggedIn ? <></> :
-        <p className='bodyText'>
+        <p className='bodyText' data-cy="LoginPrompt">
           We recommend you login or create an account if you do not already have one. Simply click
           the login tab to be taken there.
         </p>

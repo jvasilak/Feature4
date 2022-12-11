@@ -60,7 +60,7 @@ const Standings = (props) => {
     }, [teams]);
     if(Object.keys(sortedTeams).length > 0) {
     return(
-        <div className='standingsTable'>
+        <div className='standingsTable' data-cy="Loaded">
             <TableContainer>
                 <Table>
                     <TableHead>
@@ -92,7 +92,7 @@ const Standings = (props) => {
         </div>
     )
     } else {
-        return <CircularProgress/>;
+        return <CircularProgress data-cy="Loader"/>;
     }
 }
 
