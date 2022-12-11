@@ -40,6 +40,9 @@ and this project adheres to [Semantic Versioning](http://semver.org/).
 ### Added
 - Added unit testing to informational components
 - Added new components that display information about a single sport and standings for leagues of that sport
+- Added a logout button that redirects users back to login page
+- Added an admin dashboard which allows admins to update scores, and add leagues/teams
+- Added ability for users to add teams to leagues
 
 ### Changed
 - Changed styling of many components in the information modules to incorporate Material UI
