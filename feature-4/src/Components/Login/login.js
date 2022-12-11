@@ -24,7 +24,9 @@ import CircularProgress from "@mui/material/CircularProgress";
         setUsers(users);
       });
     }, []);
-    // We currently do not have many users created, in order to see the effects of a successful login try "admin" for both the username and password
+    // We currently do not have many users created, in order to see the effects of a successful login try "admin" 
+    // for both the username and password to login as an admin user. If you want to see what a regular user would see
+    // you can create your own account
     useEffect(() => {
       if (loginUserInfo && add) {
         loginUser(loginUserInfo).then((userLoggedIn) => {
