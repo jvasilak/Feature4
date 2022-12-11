@@ -10,7 +10,7 @@ import './standings.css';
 import CircularProgress from "@mui/material/CircularProgress";
 
 
-// win percent, head to head, goal difference
+// TODO: add abiltiy to sort by win percent, head to head, goal difference once database is updated
 const sortStandings = (teams) => {
     const len = Object.keys(teams).length;
     let indexes = []

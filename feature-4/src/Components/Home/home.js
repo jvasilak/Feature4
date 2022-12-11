@@ -3,8 +3,6 @@ import './homestyles.css';
 import { Link } from "react-router-dom";
 
 const Home = (props) => {
-  // Todo: add a bit of text that lets the user know if they are logged in
-  // if they are logged in say a greeting to them
   return (
     <div data-cy="body">
       <h1 className="pageHeader">Home</h1>
